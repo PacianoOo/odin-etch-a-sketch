@@ -17,6 +17,7 @@ body {
     display: flex;
     flex-direction: column;
     flex: 1;
+
 }
 
 #container > div > * {
@@ -24,5 +25,5 @@ body {
 }
 .pixel {
     flex: 1;
-    border: 1px solid black;
+
 }
