@@ -5,6 +5,10 @@ let reset_single = document.querySelector("#erase-single");
 let pix32 = document.querySelector("#pix_1");
 let pix64 = document.querySelector("#pix_2");
 let pix128 = document.querySelector("#pix_3");
+let color_mode = document.querySelectorAll(".color_mode");
+let userColor = document.querySelector("#input-color");
+var color = "black";
+
 
 
 reset.addEventListener("click", erase);
@@ -29,19 +33,62 @@ function createGrid(rowSize, colSize) {
   }
   gridCont.innerHTML = "";
   gridCont.append(...grid);
-  gridCont.addEventListener("mousedown", changecolor);
+  gridCont.addEventListener("mousedown", colorSelector);
 }
 
 
+function colorSelector(e){
+  switch (color){
+    case 'erase':
+      e.target.setAttribute("style", "background-color: white;");
+      break;
+    case 'black':
+      e.target.setAttribute("style", "background-color:black;");
+      break;
+    case 'gray':
+      e.target.setAttribute("style", "background-color: rgb(94, 94, 94);");
+      break;
+    case 'rainbow':
+      const randomColor =  getRandomColor();
+      e.target.style.backgroundColor = randomColor;
+      break;
+    default:
+      e.target.style.backgroundColor = color;
+      break;
+  }
 
-//grid = createGrid(size, size);
-//gridCont.innerHTML = "";
-//gridCont.append(...grid);
+}
 
+function getRandomColor() {
+  const letters = '0123456789ABCDEF'; // Hexadecimal characters for RGB
 
+  let pixel_color = '#';
+  for (let i = 0; i < 6; i++) {
+    pixel_color += letters[Math.floor(Math.random() * 16)];
+  }
 
-function changecolor(e){
-  e.target.setAttribute("style", "background-color:black;");
+  return pixel_color;
+}
+
+function changeColor(event) {
+  switch (event.target.dataset.color){
+    case 'rainbow':
+      color = "rainbow";
+      break;
+    case "gray":
+      color = "gray";
+      break;
+    case "erase":
+      color = "erase";
+      break;
+    default:
+      color = 'black';
+      break;
+  }
+}
+
+function userColorSelected(event){
+  color = event.target.value;
 }
 
 function erase(){
@@ -54,7 +101,9 @@ reset.addEventListener('click', erase);
 pix32.addEventListener('click', function () {createGrid(32,32)});
 pix64.addEventListener('click', function () {createGrid(64,64)});
 pix128.addEventListener('click', function (){createGrid(128,128)})
-
+color_mode.forEach(color_modes => color_modes.addEventListener('click', changeColor));
+userColor.addEventListener('change', userColorSelected);
+userColor.addEventListener('input', userColorSelected);
 
 //reset_single.addEventListener('click', erase_single);
 
