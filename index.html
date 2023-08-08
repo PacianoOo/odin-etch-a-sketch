@@ -9,16 +9,39 @@
     <title>Etch A Sketch!</title>
 </head>
 <body>
-    <div id = "container"></div>
-    <button id = "erase-all">erase-all</button>
-    <button id = "erase-single" class = "color_mode" data-color = "erase" type = "button">Erase</button>
-    <button id = "rainbow_color" class = "color_mode" data-color = "rainbow" type = "button">Rainbow</button>
-    <button id = "default_black" class = "color_mode" data-color = "black" type = "button">Black</button>
-    <button id = "gray_scale" class = "color_mode" data-color = "gray" type = "button">Gray</button>
-    <button class="color-choice">Pick: <input type="color" value="#ff0000" id="input-color"></button>
-    <button id = "pix_1"> 32 X 32 grid</button>
-    <button id = "pix_2">64 X 64 grid</button>
-    <button id = "pix_3">128 X 128 grid</button>
-    <script src = 'script.js'></script>
+    <div class="top">
+        <div class="content_1"> Etch a Sketch</div>
+        <div class="content_2">Draw to your hearts content!</div>
+    </div>
+    <div class="container">
+        
+        <div class="content_1">
+            <div class="instructions_color">
+                <ul>
+                    <li>Select a color to paint!</li>
+                    <li>You can erase specific pixels with the "Erase button"</li>
+                    <li>You can also select specific colors with the Pick specific color button</li>
+                </ul>
+            </div>
+            <button id = "erase-all">Erase-all</button>
+            <button id = "erase-single" class = "color_mode" data-color = "erase" type = "button">Erase</button>
+            <button id = "rainbow_color" class = "color_mode" data-color = "rainbow" type = "button">Rainbow</button>
+            <button id = "default_black" class = "color_mode" data-color = "black" type = "button">Black</button>
+            <button id = "gray_scale" class = "color_mode" data-color = "gray" type = "button">Gray</button>
+            <button class="color-choice">Pick specific color: <input type="color" value="#ff0000" id="input-color"></button>
+        </div>
+        <div id = "container_paint"></div>
+        <div class="content_2">
+            <div class="instructions_grid">
+                <ul>
+                    <li> Select a grid size</li>
+                </ul>
+            </div>
+            <button id = "pix_1"> 32 X 32 grid</button>
+            <button id = "pix_2">64 X 64 grid</button>
+            <button id = "pix_3">128 X 128 grid</button>
+        </div>
+    </div>
+        <script src = 'script.js'></script>
     </body>
 </html>

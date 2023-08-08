@@ -1,5 +1,5 @@
 
-let gridCont = document.querySelector("#container");
+let gridCont = document.querySelector("#container_paint");
 let reset = document.querySelector("#erase-all");
 let reset_single = document.querySelector("#erase-single");
 let pix32 = document.querySelector("#pix_1");
@@ -20,7 +20,7 @@ function createGrid(rowSize, colSize) {
   let grid = [];
   for (let i = 0; i < rowSize; i++){
     grid[i] = document.createElement("div");
-    grid[i].setAttribute("class", "container");
+    grid[i].setAttribute("class", "container_col");
     let pixels = [];
     for (let j = 0; j < colSize; j++){
       
