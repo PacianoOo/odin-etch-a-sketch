@@ -7,8 +7,19 @@ let pix64 = document.querySelector("#pix_2");
 let pix128 = document.querySelector("#pix_3");
 let color_mode = document.querySelectorAll(".color_mode");
 let userColor = document.querySelector("#input-color");
-var color = "black";
 
+
+let rainbow_color = document.querySelector('#rainbow_color');
+let default_black = document.querySelector('#default_black');
+let gray_scale = document.querySelector('#gray_scale');
+let specific_color = document.querySelector('#specific_color');
+let color_mode_selected = document.querySelector('.color_mode_selected');
+
+
+let grid_lines = document.querySelector("#grid");
+
+
+var color = "black";
 
 
 reset.addEventListener("click", erase);
@@ -74,36 +85,123 @@ function changeColor(event) {
   switch (event.target.dataset.color){
     case 'rainbow':
       color = "rainbow";
+      rainbow_color.setAttribute('style', 'box-shadow: 0 0 1rem #a37643;');
+
+      specific_color.setAttribute('style', 'background-color: #F5F5F5; border: 1px solid #F1DEC9;');
+      default_black.setAttribute('style', 'background-color: #F5F5F5; border: 1px solid #F1DEC9;');
+      reset_single.setAttribute('style', 'background-color: #F5F5F5; border: 1px solid #F1DEC9;');
+      gray_scale.setAttribute('style', 'background-color: #F5F5F5; border: 1px solid #F1DEC9;');
       break;
     case "gray":
       color = "gray";
+      gray_scale.setAttribute('style', 'box-shadow: 0 0 1rem #a37643;');
+
+      specific_color.setAttribute('style', 'background-color: #F5F5F5; border: 1px solid #F1DEC9;');
+      default_black.setAttribute('style', 'background-color: #F5F5F5; border: 1px solid #F1DEC9;');
+      reset_single.setAttribute('style', 'background-color: #F5F5F5; border: 1px solid #F1DEC9;');
+      rainbow_color.setAttribute('style', 'background-color: #F5F5F5; border: 1px solid #F1DEC9;');
       break;
     case "erase":
       color = "erase";
+      reset_single.setAttribute('style', 'box-shadow: 0 0 1rem #a37643;');
+
+      specific_color.setAttribute('style', 'background-color: #F5F5F5; border: 1px solid #F1DEC9;');
+      default_black.setAttribute('style', 'background-color: #F5F5F5; border: 1px solid #F1DEC9;');
+      gray_scale.setAttribute('style', 'background-color: #F5F5F5; border: 1px solid #F1DEC9;');
+      rainbow_color.setAttribute('style', 'background-color: #F5F5F5; border: 1px solid #F1DEC9;');
+      break;
+    case "color_type":
+      specific_color.setAttribute('style', 'box-shadow: 0 0 1rem #a37643;');
+
+      default_black.setAttribute('style', 'background-color: #F5F5F5; border: 1px solid #F1DEC9;');
+      reset_single.setAttribute('style', 'background-color: #F5F5F5; border: 1px solid #F1DEC9;');
+      gray_scale.setAttribute('style', 'background-color: #F5F5F5; border: 1px solid #F1DEC9;');
+      rainbow_color.setAttribute('style', 'background-color: #F5F5F5; border: 1px solid #F1DEC9;');
+      break;
+
+    case "color_picked":
+      specific_color.setAttribute('style', 'box-shadow: 0 0 1rem #a37643;');
+
+
+      default_black.setAttribute('style', 'background-color: #F5F5F5; border: 1px solid #F1DEC9;');
+      reset_single.setAttribute('style', 'background-color: #F5F5F5; border: 1px solid #F1DEC9;');
+      gray_scale.setAttribute('style', 'background-color: #F5F5F5; border: 1px solid #F1DEC9;');
+      rainbow_color.setAttribute('style', 'background-color: #F5F5F5; border: 1px solid #F1DEC9;');
       break;
     default:
       color = 'black';
+      default_black.setAttribute('style', 'box-shadow: 0 0 1rem #a37643;');
+
+      specific_color.setAttribute('style', 'background-color: #F5F5F5; border: 1px solid #F1DEC9;');
+      reset_single.setAttribute('style', 'background-color: #F5F5F5; border: 1px solid #F1DEC9;');
+      gray_scale.setAttribute('style', 'background-color: #F5F5F5; border: 1px solid #F1DEC9;');
+      rainbow_color.setAttribute('style', 'background-color: #F5F5F5; border: 1px solid #F1DEC9;');
       break;
   }
 }
 
 function userColorSelected(event){
   color = event.target.value;
+
+
+  specific_color.setAttribute('style', 'box-shadow: 0 0 1rem #a37643;');
 }
 
 function erase(){
 
 const pixels = document.querySelectorAll(".pixel");
 pixels.forEach(pixel => pixel.style.backgroundColor = 'white');
+
+
+default_black.setAttribute('style', 'background-color: #F5F5F5; border: 1px solid #F1DEC9;');
+reset_single.setAttribute('style', 'background-color: #F5F5F5; border: 1px solid #F1DEC9;');
+gray_scale.setAttribute('style', 'background-color: #F5F5F5; border: 1px solid #F1DEC9;');
+rainbow_color.setAttribute('style', 'background-color: #F5F5F5; border: 1px solid #F1DEC9;');
 }
 
+function show_grid() {
+  const pixels = document.querySelectorAll(".pixel");
+  pixels.forEach(pixel => pixel.classList.toggle('gridline'));
+}
+
+
 reset.addEventListener('click', erase);
-pix32.addEventListener('click', function () {createGrid(32,32)});
-pix64.addEventListener('click', function () {createGrid(64,64)});
-pix128.addEventListener('click', function (){createGrid(128,128)})
+pix32.addEventListener('click', () =>{
+  createGrid(32,32);
+  pix32.classList.toggle('effect');
+  pix64.classList.toggle('effect');
+  pix128.classList.toggle('effect');
+});
+
+
+pix64.addEventListener('click', () =>{
+  createGrid(64,64);
+  pix32.classList.toggle('effect');
+  pix64.classList.toggle('effect');
+  pix128.classList.toggle('effect');
+});
+
+
+
+
+
+pix128.addEventListener('click',() =>{
+  createGrid(128,128);
+  pix32.classList.toggle('effect');
+  pix64.classList.toggle('effect');
+  pix128.classList.toggle('effect');
+});
+
+
+
+
+
 color_mode.forEach(color_modes => color_modes.addEventListener('click', changeColor));
 userColor.addEventListener('change', userColorSelected);
 userColor.addEventListener('input', userColorSelected);
+
+
+grid_lines.addEventListener('click', show_grid);
 
 //reset_single.addEventListener('click', erase_single);
 

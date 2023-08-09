@@ -28,7 +28,7 @@
             <button id = "rainbow_color" class = "color_mode" data-color = "rainbow" type = "button">Rainbow</button>
             <button id = "default_black" class = "color_mode" data-color = "black" type = "button">Black</button>
             <button id = "gray_scale" class = "color_mode" data-color = "gray" type = "button">Gray</button>
-            <button class="color-choice">Pick specific color: <input type="color" value="#ff0000" id="input-color"></button>
+            <button id = "specific_color" class="color_mode" data-color = "color_type">Pick specific color: <input type="color" class = "color_mode_selected" data-color = "color_picked"  value="#ff0000" id="input-color"></button>
         </div>
         <div id = "container_paint"></div>
         <div class="content_2">
@@ -40,6 +40,7 @@
             <button id = "pix_1"> 32 X 32 grid</button>
             <button id = "pix_2">64 X 64 grid</button>
             <button id = "pix_3">128 X 128 grid</button>
+            <button id = "grid">Toggle Grid Lines</button>
         </div>
     </div>
         <script src = 'script.js'></script>

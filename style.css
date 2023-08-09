@@ -2,16 +2,39 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
+    background-color: #F1DEC9;
+
+}
+button {
+    background-color: #F5F5F5;
+    width: 100px;
+    height: 25px;
+    border-radius: 5px;
+    border: 1px solid #F1DEC9;
+}
+button#specific_color {
+    height: 100px;
+}
+button#grid{
+    height: 50px;
+}
+button:hover {
+    border: 1px solid #C8B6A6;
+}
+
+.selected {
+    box-shadow: 0 0 1rem #a37643;
 }
 .top{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     flex-direction: row;
-    border: 1px solid black;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
     height: 100px;
     width: 600px;
+    border-radius: 10px;
+    background-color: #C8B6A6;
 }
 .top > .content_1 {
     margin: 10px;
@@ -26,35 +49,40 @@ body {
     justify-content: space-evenly;
     align-items: center;
     flex-direction: row;
-    border: 1px solid black;
-    margin: 20px;
-    padding: 20px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #C8B6A6;
 }
 .container > .content_1 {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    border: 1px solid black;
+    align-items: center;
     margin: 50px;
     padding: 20px;
     height: 500px;
     width: 300px;
+    background-color: #F1DEC9;
+    border-radius: 20px;
 }
 .container > .content_2 {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    border: 1px solid black;
+    align-items: center;
     margin: 50px;
     padding: 20px;
     height: 500px;
     width: 300px;
+    background-color: #F1DEC9;
+    border-radius: 20px;
 }
 #container_paint {
     display: flex;
     width: 500px;
     height: 500px;
-    border: 1px solid rgb(0, 0, 0);
+    background-color: white;
 }
 
 #container_paint > div{
@@ -71,4 +99,12 @@ body {
 .pixel {
     flex: 1;
 
+}
+
+.gridline {
+    border: 1px solid rgb(61, 61, 61);
+}
+
+.effect {
+    box-shadow: 0 0 1rem #a37643;
 }
