@@ -84,7 +84,6 @@ button:hover {
     height: 500px;
     background-color: white;
 }
-
 #container_paint > div{
     background-color:rgb(255, 255, 255);
     display: flex;
@@ -92,19 +91,15 @@ button:hover {
     flex: 1;
 
 }
-
 #container_paint > div > * {
     flex: 1;
 }
 .pixel {
     flex: 1;
-
 }
-
 .gridline {
     border: 1px solid rgb(61, 61, 61);
 }
-
 .effect {
     box-shadow: 0 0 1rem #a37643;
 }
